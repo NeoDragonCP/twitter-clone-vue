@@ -140,6 +140,7 @@ export default {
   padding: 0.2em 1em;
   margin-right: auto;
   margin-bottom: 1em;
+  font-weight: bold;
 }
 
 .userpfoile__extradetail {
