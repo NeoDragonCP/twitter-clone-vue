@@ -48,9 +48,9 @@ export default {
         email: "mcvickerstephen@gmail.com",
         isAdmin: true,
         tweets: [
-          { id: 1, content: "Twitter is amazing!" },
-          { id: 2, content: "Anoter tweet here..." },
           { id: 3, content: "3rd tweet just for more content." },
+          { id: 2, content: "Anoter tweet here..." },
+          { id: 1, content: "Twitter is amazing!" },
         ],
       },
     };
@@ -73,8 +73,8 @@ export default {
         return;
       }
 
-      this.user.tweets.push({
-        id: this.user.tweets.length,
+      this.user.tweets.unshift({
+        id: this.user.tweets.length + 1,
         content: this.newTweetContent,
       });
     },
