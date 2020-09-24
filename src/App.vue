@@ -54,9 +54,6 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  #app {
-  }
-
   .content-wrapper {
     height: auto;
     margin: 0;
