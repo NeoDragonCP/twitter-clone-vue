@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style>
+<style scopped>
 .tweet-item {
   margin: 1em;
   padding: 2em;

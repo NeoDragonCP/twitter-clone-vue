@@ -13,9 +13,15 @@
     <form class="userprofile__create-tweet" @submit.prevent="createNewTweet">
       <label for="newTweet">
         <b>New Tweet</b>
+        (
+        <span
+          :class="{'-exceeded':newTweetCharacterCount > 180}"
+        >{{newTweetCharacterCount}}</span>/180)
       </label>
       <textarea id="newTweet" rows="4" v-model="newTweetContent" />
-      <button>Tweet</button>
+      <button
+        :class="{'-exceeded':newTweetCharacterCount > 180, '-empty': newTweetContent<= 0}"
+      >Tweet</button>
     </form>
   </div>
 
@@ -59,6 +65,9 @@ export default {
     fullName() {
       return `${this.user.firstName} ${this.user.lastName}`;
     },
+    newTweetCharacterCount() {
+      return this.newTweetContent.length;
+    },
   },
   methods: {
     followUser() {
@@ -71,6 +80,12 @@ export default {
       // Make sure there is content
       if (this.newTweetContent.length <= 0) {
         console.log("No content in textfield");
+        return;
+      }
+
+      // Make sure the tweet isn't too long
+      if (this.newTweetCharacterCount > 180) {
+        console.log("Tweet is too long");
         return;
       }
 
@@ -100,7 +115,7 @@ export default {
 };
 </script>
 
-<style>
+<style scopped>
 .userprofile {
   width: 300px;
   padding: 2em;
@@ -179,5 +194,12 @@ button {
 
 button:active {
   transform: scale(0.96);
+}
+
+.-exceeded {
+  background-color: #b85140;
+}
+.-empty {
+  background-color: darkgray;
 }
 </style>
