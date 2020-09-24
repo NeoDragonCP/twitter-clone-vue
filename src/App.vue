@@ -14,9 +14,12 @@ export default {
 </script>
 
 <style>
+body {
+  overflow-x: hidden;
+}
+
 #app {
   width: 100vw;
-  height: 100vh;
 
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -33,6 +36,7 @@ export default {
 
 @media only screen and (max-width: 768px) {
   #app {
+    height: auto;
     margin: 0;
     padding: 1em;
     flex-direction: column;

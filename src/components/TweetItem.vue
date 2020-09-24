@@ -37,6 +37,8 @@ export default {
   border: 1px solid #41b883;
   cursor: pointer;
 
+  word-wrap: break-word;
+
   box-shadow: 0 2px 4px 0px #3d4f5241;
 
   transition: all 0.3s ease;

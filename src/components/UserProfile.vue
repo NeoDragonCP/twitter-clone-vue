@@ -16,7 +16,7 @@
         (
         <span
           :class="{'-exceeded':newTweetCharacterCount > 180}"
-        >{{newTweetCharacterCount}}</span>/180)
+        >{{newTweetCharacterCount}}</span>/180 )
       </label>
       <textarea id="newTweet" rows="4" v-model="newTweetContent" />
       <button
@@ -26,6 +26,7 @@
   </div>
 
   <div class="userprofile__tweetswrapper">
+    <h4>Latest Tweets</h4>
     <tweetItem
       v-for="tweet in user.tweets"
       :key="tweet.id"
