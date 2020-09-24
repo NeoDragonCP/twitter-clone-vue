@@ -36,6 +36,9 @@ export default {
   border-radius: 6px;
   border: 1px solid #41b883;
   cursor: pointer;
+
+  box-shadow: 0 2px 4px 0px #3d4f5241;
+
   transition: all 0.3s ease;
 }
 
@@ -44,6 +47,7 @@ export default {
 }
 
 .tweet-item__user {
+  color: #41b883;
   font-weight: bold;
   margin-bottom: 1em;
 }

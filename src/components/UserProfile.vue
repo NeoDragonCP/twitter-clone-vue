@@ -10,10 +10,16 @@
       </div>
     </div>
     <button @click="followUser">Follow</button>
+    <form class="userprofile__create-tweet" @submit.prevent="createNewTweet">
+      <label for="newTweet">
+        <b>New Tweet</b>
+      </label>
+      <textarea id="newTweet" rows="4" v-model="newTweetContent" />
+      <button>Tweet</button>
+    </form>
   </div>
 
   <div class="userprofile__tweetswrapper">
-    <h4>Tweets:</h4>
     <tweetItem
       v-for="tweet in user.tweets"
       :key="tweet.id"
@@ -32,6 +38,7 @@ export default {
   components: { TweetItem },
   data() {
     return {
+      newTweetContent: "",
       followers: 0,
       user: {
         id: 1,
@@ -41,8 +48,9 @@ export default {
         email: "mcvickerstephen@gmail.com",
         isAdmin: true,
         tweets: [
-          { id: 1, content: "tweeter is amazing!" },
+          { id: 1, content: "Twitter is amazing!" },
           { id: 2, content: "Anoter tweet here..." },
+          { id: 3, content: "3rd tweet just for more content." },
         ],
       },
     };
@@ -58,6 +66,17 @@ export default {
     },
     toggleFavorite(id) {
       console.log("Favorited tweet" + id);
+    },
+    createNewTweet() {
+      if (this.newTweetContent.length <= 0) {
+        console.log("No content in textfield");
+        return;
+      }
+
+      this.user.tweets.push({
+        id: this.user.tweets.length,
+        content: this.newTweetContent,
+      });
     },
   },
   // Example of lifecycle method
@@ -90,7 +109,7 @@ export default {
 
   align-self: start;
 
-  box-shadow: 0 6px 10px 0px #3d4f5241;
+  box-shadow: 0 2px 4px 0px #3d4f5241;
 }
 
 .userpfoile__adminbadge {
@@ -106,6 +125,14 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.userprofile__create-tweet {
+  margin-top: 1em;
+  border-top: 1px solid #41b883;
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
 }
 
 .userprofile__tweetswrapper {
