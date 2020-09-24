@@ -49,7 +49,7 @@ export default {
         isAdmin: true,
         tweets: [
           { id: 3, content: "3rd tweet just for more content." },
-          { id: 2, content: "Anoter tweet here..." },
+          { id: 2, content: "Another tweet here..." },
           { id: 1, content: "Twitter is amazing!" },
         ],
       },
@@ -68,15 +68,20 @@ export default {
       console.log("Favorited tweet" + id);
     },
     createNewTweet() {
+      // Make sure there is content
       if (this.newTweetContent.length <= 0) {
         console.log("No content in textfield");
         return;
       }
 
+      // Add the tweet
       this.user.tweets.unshift({
         id: this.user.tweets.length + 1,
         content: this.newTweetContent,
       });
+
+      // Reset textbox content
+      this.newTweetContent = "";
     },
   },
   // Example of lifecycle method
