@@ -9,7 +9,7 @@
         {{followers}}
       </div>
     </div>
-    <button @click="followUser">Follow</button>
+    <button class="follow" @click="followUser">Follow</button>
     <form class="userprofile__create-tweet" @submit.prevent="createNewTweet">
       <label for="newTweet">
         <b>New Tweet</b>
@@ -201,5 +201,11 @@ button:active {
 }
 .-empty {
   background-color: darkgray;
+}
+
+.follow {
+  background-color: transparent;
+  color: #41b883;
+  border: 2px solid #41b883;
 }
 </style>
