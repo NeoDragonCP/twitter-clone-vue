@@ -1,4 +1,4 @@
-# twotter-tutorial
+# Twitter-Clone-Vue
 
 NOTE: This project is still in development.
 README will be updated as project nears completion.

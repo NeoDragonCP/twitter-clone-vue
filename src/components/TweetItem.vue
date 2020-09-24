@@ -1,27 +1,27 @@
 <template>
-  <div class="twoot-item" @click="favoriteTwoot(twoot.id)">
-    <div class="user-profile__twoot">
-      <div class="twoot-item__user">@{{username}}</div>
-      <div class="twoot-item__content">{{twoot.content}}</div>
+  <div class="tweet-item" @click="favoritetweet(tweet.id)">
+    <div class="user-profile__tweet">
+      <div class="tweet-item__user">@{{username}}</div>
+      <div class="tweet-item__content">{{tweet.content}}</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "TwootItem",
+  name: "tweetItem",
   props: {
     username: {
       type: String,
       required: true,
     },
-    twoot: {
+    tweet: {
       type: Object,
       required: true,
     },
   },
   methods: {
-    favoriteTwoot(id) {
+    favoritetweet(id) {
       this.$emit("favorite", id);
     },
   },
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style>
-.twoot-item {
+.tweet-item {
   margin: 1em;
   padding: 2em;
   background-color: white;
@@ -39,11 +39,11 @@ export default {
   transition: all 0.3s ease;
 }
 
-.twoot-item:hover {
+.tweet-item:hover {
   transform: scale(1.1);
 }
 
-.twoot-item__user {
+.tweet-item__user {
   font-weight: bold;
   margin-bottom: 1em;
 }

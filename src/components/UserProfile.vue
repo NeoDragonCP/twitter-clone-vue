@@ -12,24 +12,24 @@
     <button @click="followUser">Follow</button>
   </div>
 
-  <div class="userprofile__twootswrapper">
-    <h4>Twoots:</h4>
-    <TwootItem
-      v-for="twoot in user.twoots"
-      :key="twoot.id"
+  <div class="userprofile__tweetswrapper">
+    <h4>Tweets:</h4>
+    <tweetItem
+      v-for="tweet in user.tweets"
+      :key="tweet.id"
       :username="user.username"
-      :twoot="twoot"
+      :tweet="tweet"
       @favorite="toggleFavorite"
     />
   </div>
 </template>
 
 <script>
-import TwootItem from "./TwootItem";
+import TweetItem from "./TweetItem";
 
 export default {
   name: "UserProfile",
-  components: { TwootItem },
+  components: { TweetItem },
   data() {
     return {
       followers: 0,
@@ -40,9 +40,9 @@ export default {
         lastName: "McVicker",
         email: "mcvickerstephen@gmail.com",
         isAdmin: true,
-        twoots: [
-          { id: 1, content: "Twooter is amazing!" },
-          { id: 2, content: "Anoter twoot here..." },
+        tweets: [
+          { id: 1, content: "tweeter is amazing!" },
+          { id: 2, content: "Anoter tweet here..." },
         ],
       },
     };
@@ -57,7 +57,7 @@ export default {
       this.followers++;
     },
     toggleFavorite(id) {
-      console.log("Favorited Twoot" + id);
+      console.log("Favorited tweet" + id);
     },
   },
   // Example of lifecycle method
@@ -88,6 +88,8 @@ export default {
   flex-direction: column;
   text-align: left;
 
+  align-self: start;
+
   box-shadow: 0 6px 10px 0px #3d4f5241;
 }
 
@@ -106,12 +108,12 @@ export default {
   justify-content: space-between;
 }
 
-.userprofile__twootswrapper {
+.userprofile__tweetswrapper {
   min-width: 50%;
 }
 
 @media only screen and (max-width: 768px) {
-  .userprofile__twootswrapper {
+  .userprofile__tweetswrapper {
     width: 100%;
   }
 }
