@@ -3,6 +3,9 @@
 NOTE: This project is still in development.
 README will be updated as project nears completion.
 
+Codesandbox link to try as I build:
+https://codesandbox.io/s/twitter-clone-vue-gxvq9
+
 ## Project setup
 
 ```
